@@ -1,0 +1,103 @@
+﻿<Window x:Class="Uservox.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Uservox"
+        xmlns:hc="https://handyorg.github.io/handycontrol"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <Storyboard x:Key="Storyboard1">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="button">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Hidden}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="image">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="-414"/>
+            </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Login">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Hidden}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Login_Copy">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Hidden}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.5" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="button1">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Hidden}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.5" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="Storyboard2">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Login">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Hidden}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.5" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="image">
+                <EasingDoubleKeyFrame KeyTime="0" Value="-414"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="-1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="button">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Hidden}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.5" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="button1">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.1" Value="{x:Static Visibility.Hidden}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Login_Copy">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.5" Value="{x:Static Visibility.Hidden}"/>
+            </ObjectAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="button">
+            <BeginStoryboard Storyboard="{StaticResource Storyboard1}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="button1">
+            <BeginStoryboard x:Name="Storyboard2_BeginStoryboard" Storyboard="{StaticResource Storyboard2}"/>
+        </EventTrigger>
+    </Window.Triggers>
+    <Grid>
+        <Grid x:Name="Login" Margin="135,50,357.5,105">
+            <TextBlock HorizontalAlignment="Left" Height="40" TextWrapping="Wrap" Text="Welcome to" VerticalAlignment="Top" Width="125" FontSize="22" FontWeight="Bold" Padding="0,5,0,0"/>
+            <Image HorizontalAlignment="Left" Height="40" Margin="134.5,0,0,0" VerticalAlignment="Top" Width="40" Source="icons8-chat-message-48.png"/>
+            <TextBlock HorizontalAlignment="Left" Height="40" Margin="182.5,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="125" FontSize="22" FontWeight="Bold" Padding="0,5,0,0"><Run Text="User"/><Run Foreground="#FF0E41F1" Text="vox"/></TextBlock>
+            <TextBlock HorizontalAlignment="Left" Height="40" Margin="0,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="265" Padding="0,5,0,0" TextAlignment="Center"><Run Text="Continue to create impressive forms,"/><LineBreak/><Run Text="receiving useful data"/></TextBlock>
+            <TextBlock HorizontalAlignment="Left" Height="40" Margin="0,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="265" Padding="0,5,0,0" TextAlignment="Center" Text="Login In" FontWeight="Bold" FontSize="14"/>
+            <hc:TextBox hc:InfoElement.Placeholder="Email"
+                Margin="0,140,42.5,115"/>
+            <hc:PasswordBox hc:InfoElement.Placeholder="Please enter the content" ShowClearButton="True" ShowEyeButton="True"
+                Margin="0,195,42.5,60"/>
+            <Button Content="Log In" HorizontalAlignment="Left" Height="40" Margin="0,255,0,0" VerticalAlignment="Top" Width="265" Background="#FF0E41F1" Foreground="White"/>
+        </Grid>
+        <Grid x:Name="Login_Copy" Margin="446,50,46.5,105" Visibility="Hidden">
+            <TextBlock HorizontalAlignment="Left" Height="40" TextWrapping="Wrap" Text="Welcome to" VerticalAlignment="Top" Width="125" FontSize="22" FontWeight="Bold" Padding="0,5,0,0"/>
+            <Image HorizontalAlignment="Left" Height="40" Margin="134.5,0,0,0" VerticalAlignment="Top" Width="40" Source="icons8-chat-message-48.png"/>
+            <TextBlock HorizontalAlignment="Left" Height="40" Margin="182.5,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="125" FontSize="22" FontWeight="Bold" Padding="0,5,0,0"><Run Text="User"/><Run Foreground="#FF0E41F1" Text="vox"/></TextBlock>
+            <TextBlock HorizontalAlignment="Left" Height="40" Margin="0,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="265" Padding="0,5,0,0" TextAlignment="Center"><Run Text="Create convenient forms, get feedback "/><LineBreak/><Run Text="and useful data"/></TextBlock>
+            <TextBlock HorizontalAlignment="Left" Height="40" Margin="0,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="265" Padding="0,5,0,0" TextAlignment="Center" Text="Create Account" FontWeight="Bold" FontSize="14"/>
+            <hc:TextBox hc:InfoElement.Placeholder="Email"
+                Margin="0,189,42.5,66"/>
+            <hc:PasswordBox hc:InfoElement.Placeholder="Please enter the content" ShowClearButton="True" ShowEyeButton="True"
+                Margin="0,244,42.5,11"/>
+            <Button Content="Log In" HorizontalAlignment="Left" Height="40" Margin="0,304,0,-49" VerticalAlignment="Top" Width="265" Background="#FF0E41F1" Foreground="White"/>
+            <hc:TextBox hc:InfoElement.Placeholder="Name"
+                Margin="0,135,42.5,120"/>
+        </Grid>
+        <Image x:Name="image" HorizontalAlignment="Left" Height="450" VerticalAlignment="Top" Width="385" Source="login.png" RenderTransformOrigin="0.5,0.5" Margin="415,0,0,0" Stretch="UniformToFill">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Button x:Name="button" Content="Sign Up" HorizontalAlignment="Left" Margin="645,210,0,210" VerticalAlignment="Center" Width="125" Background="#FF213781" Foreground="White"/>
+        <Button x:Name="button1" Content="Log In" HorizontalAlignment="Left" Margin="27,210,0,210" VerticalAlignment="Center" Width="125" Background="#FF213781" Foreground="White" Visibility="Hidden"/>
+    </Grid>
+</Window>
